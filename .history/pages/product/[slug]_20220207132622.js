@@ -14,6 +14,7 @@ import {
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
 import Image from 'next/image';
+import { ThemeProvider } from '@mui/styles';
 export default function ProductPage() {
   const classes = useStyles();
   const router = useRouter();
@@ -45,27 +46,29 @@ export default function ProductPage() {
           ></Image>
         </Grid>
         <Grid item md={3} xs={12}>
-          <List>
-            <ListItem>
-              <Typography component="h4" variant="h4">
-                {product.name}
-              </Typography>
-            </ListItem>
-            <ListItem>
-              <Typography>Category: {product.category}</Typography>
-            </ListItem>
-            <ListItem>
-              <Typography>Brand: {product.brand}</Typography>
-            </ListItem>
-            <ListItem>
-              <Typography>
-                Rating: {product.brand} stars ({product.numReviews} reviews)
-              </Typography>
-            </ListItem>
-            <ListItem>
-              <Typography>Description: {product.description}</Typography>
-            </ListItem>
-          </List>
+          <ThemeProvider theme={theme}>
+            <List>
+              <ListItem>
+                <Typography component="h1" variant="h1">
+                  Product: {product.name}
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography>Category: {product.category}</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography>Brand: {product.brand}</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography>
+                  Rating: {product.brand} stars ({product.numReviews} reviews)
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography>Description: {product.description}</Typography>
+              </ListItem>
+            </List>
+          </ThemeProvider>
         </Grid>
         <Grid item md={3} xs={12}>
           <Card>

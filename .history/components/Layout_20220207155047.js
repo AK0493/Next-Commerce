@@ -15,25 +15,13 @@ import { ThemeProvider } from '@mui/styles';
 
 export default function Layout({ title, description, children }) {
   const theme = createTheme({
-    typography: {
-      h1: {
-        fontSize: '1.6rem',
-        fontWeight: 400,
-        margin: '1rem 0',
-      },
-    },
     palette: {
+      type: 'light',
       primary: {
-        light: '#757ce8',
-        main: '#3f50b5',
-        dark: '#002884',
-        contrastText: '#fff',
+        main: '#f0c000',
       },
       secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
+        main: '#208080',
       },
     },
   });

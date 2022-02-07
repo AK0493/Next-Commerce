@@ -47,7 +47,7 @@ export default function ProductPage() {
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <Typography component="h4" variant="h4">
+              <Typography component="h1" variant="h1">
                 {product.name}
               </Typography>
             </ListItem>

@@ -21,19 +21,19 @@ export default function Layout({ title, description, children }) {
         fontWeight: 400,
         margin: '1rem 0',
       },
+      h2: {
+        fontSize: '1.4rem',
+        fontWeight: 400,
+        margin: '1rem 0',
+      },
     },
     palette: {
+      type: 'light',
       primary: {
-        light: '#757ce8',
-        main: '#3f50b5',
-        dark: '#002884',
-        contrastText: '#fff',
+        main: '#f0c000',
       },
       secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
+        main: '#208080',
       },
     },
   });
@@ -45,7 +45,7 @@ export default function Layout({ title, description, children }) {
         <title>{title ? `${title} - Next-Commerce` : 'Next Commerce'}</title>
         {description && <meta name="description" content={description}></meta>}
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={this.theme}>
         <CssBaseline />
         <AppBar position="static" className={classes.navbar}>
           <Toolbar>

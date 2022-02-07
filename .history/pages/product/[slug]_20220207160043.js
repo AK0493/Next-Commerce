@@ -47,7 +47,7 @@ export default function ProductPage() {
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <Typography component="h4" variant="h4">
+              <Typography component="h1" variant="h1">
                 {product.name}
               </Typography>
             </ListItem>
@@ -93,7 +93,7 @@ export default function ProductPage() {
                 </Grid>
               </ListItem>
               <ListItem>
-                <Button fullWidth variant="contained" color="primary">
+                <Button fullWidth variant="contained" color="secondary">
                   Add to Cart
                 </Button>
               </ListItem>
