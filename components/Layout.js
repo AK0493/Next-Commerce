@@ -6,12 +6,12 @@ import {
   Link,
   Toolbar,
   Typography,
+  ThemeProvider,
 } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import useStyles from '../utils/styles';
 import NextLink from 'next/link';
-import { ThemeProvider } from '@mui/styles';
 
 export default function Layout({ title, description, children }) {
   const theme = createTheme({
@@ -30,10 +30,10 @@ export default function Layout({ title, description, children }) {
     palette: {
       type: 'light',
       primary: {
-        main: '#f0c000',
+        main: '#212121',
       },
       secondary: {
-        main: '#208080',
+        main: '#76FF03',
       },
     },
   });

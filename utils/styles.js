@@ -2,11 +2,11 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   navbar: {
-    backgroundColor: '#203040',
-  },
-  '& a': {
-    color: '#fff',
-    marginLeft: '10',
+    backgroundColor: '#283593',
+    '& a': {
+      color: '#ffffff',
+      marginLeft: 10,
+    },
   },
   grow: {
     flexGrow: 1,

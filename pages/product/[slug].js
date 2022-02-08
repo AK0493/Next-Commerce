@@ -29,7 +29,7 @@ export default function ProductPage() {
   return (
     <Layout title={product.name} description={product.description}>
       <div className={classes.section}>
-        {product.name}
+        <h1>{product.name}</h1>
         <NextLink href="/" passHref>
           <Link>Back to Home</Link>
         </NextLink>
@@ -47,7 +47,7 @@ export default function ProductPage() {
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <Typography component="h2" variant="h2">
+              <Typography component="h1" variant="h1">
                 {product.name}
               </Typography>
             </ListItem>
