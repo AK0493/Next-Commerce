@@ -6,14 +6,21 @@ import {
   Link,
   Toolbar,
   Typography,
+  ThemeProvider,
+  Switch,
 } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import useStyles from '../utils/styles';
 import NextLink from 'next/link';
-import { ThemeProvider } from '@mui/styles';
+import { useContext } from 'react';
+import { Store } from '../utils/Store';
+import Cookies from 'js-cookie';
 
 export default function Layout({ title, description, children }) {
+  const { state, dispatch } = useContext(Store);
+  const { darkMode } = state;
+
   const theme = createTheme({
     typography: {
       h1: {
@@ -27,8 +34,23 @@ export default function Layout({ title, description, children }) {
         margin: '1rem 0',
       },
     },
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+      primary: {
+        main: '#f0c000',
+      },
+      secondary: {
+        main: '#208080',
+      },
+    },
   });
   const classes = useStyles();
+  const themeChangeHandler = () => {
+    dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
+    const newDarkMode = !darkMode;
+    Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF');
+  };
+
   return (
     <div>
       <Head>
@@ -46,6 +68,7 @@ export default function Layout({ title, description, children }) {
             </NextLink>
             <div className={classes.grow}></div>
             <div>
+              <Switch checked={darkMode} onChange={themeChangeHandler}></Switch>
               <NextLink href="/cart">
                 <Link>Cart </Link>
               </NextLink>
