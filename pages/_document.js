@@ -1,6 +1,5 @@
 import { ServerStyleSheets } from '@mui/styles';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import Link from 'next/link';
 import React from 'react';
 
 export default class MyDocument extends Document {
@@ -12,11 +11,11 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <body>
-            <Main />
-            <NextScript />
-          </body>
         </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     );
   }
