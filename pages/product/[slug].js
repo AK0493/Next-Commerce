@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router';
 import React from 'react';
-import data from '../../utils/data';
 import NextLink from 'next/link';
 import {
   Button,
@@ -14,11 +12,11 @@ import {
 import Layout from '../../components/Layout';
 import useStyles from '../../utils/styles';
 import Image from 'next/image';
-export default function ProductPage() {
+import db from '../../utils/db';
+import Product from '../../models/product';
+export default function ProductPage(props) {
   const classes = useStyles();
-  const router = useRouter();
-  const { slug } = router.query;
-  const product = data.products.find((el) => el.slug === slug);
+  const { product } = props;
   if (!product) {
     return (
       <div>
@@ -47,7 +45,7 @@ export default function ProductPage() {
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <Typography component="h3" variant="h3">
+              <Typography component="h1" variant="h1">
                 Product: {product.name}
               </Typography>
             </ListItem>
@@ -76,7 +74,7 @@ export default function ProductPage() {
                     <Typography>Price</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography>${product.price}</Typography>
+                    <Typography>$ {product.price}</Typography>
                   </Grid>
                 </Grid>
               </ListItem>
@@ -103,4 +101,17 @@ export default function ProductPage() {
       </Grid>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+  const { slug } = params;
+  await db.connect();
+  const product = await Product.findOne({ slug }).lean();
+  await db.disconnect();
+  return {
+    props: {
+      product: db.convertDocToObj(product),
+    },
+  };
 }
