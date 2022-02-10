@@ -80,7 +80,7 @@ export default function Layout({ title, description, children }) {
                       Cart
                     </Badge>
                   ) : (
-                    'Cart'
+                    'Cart '
                   )}
                 </Link>
               </NextLink>

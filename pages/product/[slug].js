@@ -16,10 +16,13 @@ import db from '../../utils/db';
 import Product from '../../models/product';
 import { Store } from '../../utils/Store';
 import axios from 'axios';
+import { useRouter } from 'next/router';
+
 export default function ProductPage(props) {
   const classes = useStyles();
   const { dispatch } = useContext(Store);
   const { product } = props;
+  const router = useRouter();
   if (!product) {
     return (
       <div>
@@ -34,6 +37,7 @@ export default function ProductPage(props) {
       return;
     }
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity: 1 } });
+    router.push('/cart');
   };
   return (
     <Layout title={product.name} description={product.description}>
